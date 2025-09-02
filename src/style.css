@@ -1,5 +1,6 @@
 body {
     background-color: #f9f7fe;
+    font: sans-serif;
 }
 
 a{
@@ -73,18 +74,18 @@ main{
 }
 
 .weather-app-icon {
-    font-size: 44px;
-    margin-top: 22px;
+    font-size: 60px;
+    margin: 0;
 }
 
 .weather-app-temperature{
     font-size: 88px;
     font-weight: bold;
-    margin-left: 10px;
+    margin: 0;
 }
 .weather-app-unit{
     font-size: 28px;
-    margin-top: 16px;
+    margin-top: 5px
 }
 
 
