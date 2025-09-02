@@ -61,6 +61,38 @@ function handleSearchSubmit(event) {
     searchCity(searchInput.value);
 }
 
+function displayForecast(){
+let days = ['Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+    let forecastHTML = "";
+
+    days.forEach(function (day) {
+        forecastHTML =
+        forecastHTML +
+        `
+  <div class="weather-forecast-day">
+<div class="weather-forecast-date">${day}</div>
+<div class="weather-forecast-icon">🌤️ </div>
+<div class="weather-forecast-temperatures">
+<div class="weather-forecast-temperature"><strong>15&deg; </strong>
+ </div>
+ <div class="weather-forecast-temperature">9&deg; </div>
+ </div>
+ </div>
+  `;
+    });
+    
+
+    let forecastElement = document.querySelector("#forecast");
+    forecastElement.innerHTML = forecastHTML;
+
+}
+
+
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit); 
+
+searchCity("South Africa");
+displayForecast();
+
+
 
