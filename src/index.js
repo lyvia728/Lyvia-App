@@ -18,6 +18,8 @@ function refreshWeather(response) {
     WindElement.innerHTML = `${response.data.wind.speed} km/h`;
     temperatureElement.innerHTML = Math.round(temperature);
 
+    getForecast(response.data.city);
+
 } 
 function formatDate(date) {
 
@@ -61,7 +63,18 @@ function handleSearchSubmit(event) {
     searchCity(searchInput.value);
 }
 
-function displayForecast(){
+function getForecast(city) {
+    let apiKey = "eba2o4c7f9e18e3f1t9e2154f4dd3105";
+    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`;
+    axios.get(apiUrl).then(displayForecast);
+}
+
+
+
+
+function displayForecast(response) {
+    console.log(response.data);
+    
 let days = ['Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
     let forecastHTML = "";
 
@@ -92,6 +105,7 @@ let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit); 
 
 searchCity("South Africa");
+
 displayForecast();
 
 
